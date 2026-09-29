@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Theos
-        run: git clone --recursive --depth 1 https://github.com/theos/theos.git $HOME/theos
+        run: git clone --recursive --depth 1 https://github.com/roothide/theos.git $HOME/theos
       - name: Install dependencies
         run: brew install ldid perl
       - name: Build package
@@ -20,4 +20,6 @@ jobs:
         with:
           name: AutoSleep-rootless
           path: packages/*.deb
+
+
 
