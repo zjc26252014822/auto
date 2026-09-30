@@ -14,12 +14,15 @@ jobs:
         run: git clone --recursive --depth 1 https://github.com/roothide/theos.git $HOME/theos
       - name: Install dependencies
         run: brew install ldid perl
+      - name: Remove stray layout files
+        run: rm -rf layout
       - name: Build package
         run: make THEOS=$HOME/theos THEOS_PACKAGE_SCHEME=roothide TARGET_CODESIGN=true package FINALPACKAGE=1
       - uses: actions/upload-artifact@v4
         with:
           name: AutoSleep-rootless
           path: packages/*.deb
+
 
 
 
